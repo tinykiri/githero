@@ -1,0 +1,277 @@
+html {
+  height: 100%;
+  font-family: 'Fleftex', sans-serif;
+  font-size: 24px;
+  color: white;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 16px;
+}
+
+#stats {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px; 
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  font-size: 24px;
+  z-index: 20;
+  color: #00FF99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.849);
+}
+
+#playground {
+ position: relative;
+ overflow: hidden;
+ width: 100%;
+}
+
+#game-title {
+  position: absolute;
+  top: -10%;
+  left: -6%;
+  z-index: 9;
+  animation: fadeIn 1s;
+}
+
+.start-screen-buttons {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 12%;
+  left: 10%;
+  z-index: 10;
+}
+
+.start-btn {
+  position: absolute;
+  font-size: 28px;
+  top: 64%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.how-to-play {
+  position: absolute;
+  font-size: 28px;
+  top: 76%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.start-btn:hover, .how-to-play:hover {
+  cursor: pointer;
+}
+
+.menu-item .arrow {
+  animation: blink 1s infinite;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.floating-arrow {
+  position: absolute;
+  font-size: 28px;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  animation: blink 1s infinite;
+}
+
+.press-enter-hint {
+  position: absolute;
+  width: 49%;
+  font-size: 18px;
+  bottom: -6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.press-enter-replay-hint {
+  position: relative;
+  width: 49%;
+  font-size: 24px;
+  bottom: -6%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  margin-top: 30px;
+}
+
+.enter-esc-word {
+  color: #00FF99;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.popup-content {
+  background: #000000;
+  padding: 40px;
+  max-width: 100%;
+  color: white;
+  gap: 20px;
+
+}
+
+.popup-content h2, .tips-title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.rules-text {
+  font-size: 16px;
+  margin: 0;
+}
+
+.tips-text {
+  font-size: 16px;
+  margin: 0;
+}
+
+.close-hint {
+  text-align: center;
+  margin: 30px 0 30px 0;
+  font-size: 16px;
+}
+
+#terminal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 10%;
+  z-index: 15;
+  border: 4px dashed #005939;
+  color: #00FF99;
+  padding: 10px;
+  height: 32px;
+}
+
+.terminal-prompt {
+  font-size: 24px;
+  margin-left: 10px;
+  animation: blink 1s infinite;
+  padding-top: 4px;
+}
+
+#terminal-input {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 20px;
+  margin-left: 14px;
+  outline: none;
+  color: #00FF99;
+  width: 320px;
+}
+
+.game-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#falling-commands {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.falling-command {
+  position: absolute;
+  font-size: 20px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.command-text {
+  display: inline-block;
+  padding: 5px 10px;  
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.command-trail-growing {
+  position: absolute;
+  width: 3px;
+  z-index: 1;
+  opacity: 0.8;
+  transform: translateX(-50%); 
+}
+
+.game-over-overlay, .victory-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.game-score, .game-typed-commands {
+  width: 38%;
+  font-size: 28px;
+  text-align: left;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes shakingTerminal {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-5px); }
+  20% { transform: translateX(5px); }
+  30% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  50% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  70% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  90% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
